@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Link Tree</title>
+    <link rel="icon" href="fav.gif" type="image/gif">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            margin: 0 auto 24px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .profile-img:hover {
+            border-color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .profile-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: none;
+        }
+
+        .profile-img.playing .profile-gif {
+            display: block;
+        }
+
+        .profile h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .profile p {
+            color: #999999;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-item {
+            background: #000000;
+            border: 1.5px solid #333333;
+            border-radius: 12px;
+            padding: 18px 24px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.2s ease;
+            position: relative;
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .link-item:nth-child(1) { animation-delay: 0.1s; }
+        .link-item:nth-child(2) { animation-delay: 0.2s; }
+        .link-item:nth-child(3) { animation-delay: 0.3s; }
+        .link-item:nth-child(4) { animation-delay: 0.4s; }
+        .link-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .link-item:hover {
+            border-color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        .link-item:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: #000000;
+            border: 1.5px solid #333333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+            }
+            
+            .profile h1 {
+                font-size: 22px;
+            }
+            
+            .profile p {
+                font-size: 15px;
+            }
+            
+            .link-item {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+        }
+
+        /* Focus states for accessibility */
+        .link-item:focus,
+        .social-link:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="profile-img" onclick="toggleGif()">
+                <img src="spark.gif" alt="Profile GIF" class="profile-gif">
+            </div>
+            <h1>Santosh Chandu</h1>
+            <p>Google Student Ambassador</p>
+        </div>
+        
+        <div class="links">
+            <a href="#" class="link-item">https://aiskillshouse.com/student/qr-mediator?uid=385&promptId=13</a>
+            <a href="#" class="link-item">https://aiskillshouse.com/student/qr-mediator?uid=385&promptId=14</a>
+            <a href="#" class="link-item">https://aiskillshouse.com/student/qr-mediator?uid=385&promptId=15</a>
+            <a href="#" class="link-item">https://aiskillshouse.com/student/qr-mediator?uid=385&promptId=16</a>
+            <a href="#" class="link-item">https://aiskillshouse.com/student/qr-mediator?uid=385&promptId=17</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link">https://x.com/Darkspaire7</a>
+            <a href="#" class="social-link">in</a>https://www.linkedin.com/in/santosh-chandu/</a>
+            <a href="#" class="social-link">tw</a>https://github.com/kl2400090295</a>
+        </div>
+    </div>
+
+    <script>
+        let isGifPlaying = false;
+        
+        function toggleGif() {
+            const profileImg = document.querySelector('.profile-img');
+            const gif = document.querySelector('.profile-gif');
+            
+            if (isGifPlaying) {
+                profileImg.classList.remove('playing');
+                profileImg.style.background = '#f5f5f5';
+                isGifPlaying = false;
+            } else {
+                profileImg.classList.add('playing');
+                profileImg.style.background = 'transparent';
+                // Refresh the GIF by changing the src temporarily
+                const currentSrc = gif.src;
+                gif.src = '';
+                gif.src = currentSrc;
+                isGifPlaying = true;
+            }
+        }
+
+        // Add subtle click animation to links
+        document.querySelectorAll('.link-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Simple scale animation
+                this.style.transform = 'translateY(-1px) scale(0.98)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-1px)';
+                }, 100);
+            });
+        });
+
+        // Smooth hover effect for profile image
+        const profileImg = document.querySelector('.profile-img');
+        profileImg.addEventListener('mouseenter', function() {
+            if (!isGifPlaying) {
+                this.style.background = '#f0f0f0';
+            }
+        });
+        
+        profileImg.addEventListener('mouseleave', function() {
+            if (!isGifPlaying) {
+                this.style.background = '#f5f5f5';
+            }
+        });
+    </script>
+</body>
+</html>
